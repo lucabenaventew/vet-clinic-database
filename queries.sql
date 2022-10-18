@@ -16,3 +16,35 @@ SELECT SUM(escape_attempts) FROM animals WHERE neutered IS true;
 SELECT MAX(weight_kg), MIN(weight_kg) FROM animals WHERE species = 'digimon';
 SELECT MAX(weight_kg), MIN(weight_kg) FROM animals WHERE species = 'pokemon';
 SELECT AVG(escape_attempts) FROM animals  WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-01-01';
+
+
+BEGIN;
+UPDATE animals
+SET species = 'unspecified';
+ROLLBACK;
+
+BEGIN;
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE '%mon';
+UPDATE animals
+SET species = 'pokemon'
+WHERE name NOT LIKE '%mon';
+COMMIT;
+
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+
+BEGIN;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
+SAVEPOINT deleteAnimals;
+SELECT * FROM animals; 
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+SELECT * FROM animals; 
+ROLLBACK TO deleteAnimals;
+UPDATE animals
+SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
+SELECT * FROM animals;
+COMMIT;
