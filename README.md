@@ -16,7 +16,11 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 - GitHub: [@lucabenaventew](https://github.com/lucabenaventew)
 - Twitter: [@BenaventeLuca](https://twitter.com/BenaventeLuca)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/lucabenaventew)
+
+-👤 **Ghislain Mitahi**
+
+- GitHub: [@Ghislainmitahi](https://github.com/GhislainMitahi)
+- Twitter: [@Ghislainmitahi]()
 
 ## 🤝 Contributing
 
